@@ -1,7 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const objectA = {
+    name: "Place A",
+    description: "Nice Place",
+  };
+
   return (
     <div className="App">
       <header className="App-header">
