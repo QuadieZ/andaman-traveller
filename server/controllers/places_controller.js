@@ -6,7 +6,7 @@ module.exports = {
       if (err) console.log("Get Places Error", err);
 
       console.log("places", places);
-      res.status(200).send(products);
+      res.status(200).send(places);
     });
   },
 

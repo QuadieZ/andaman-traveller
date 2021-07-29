@@ -15,7 +15,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 
-const PORT = 5000;
+const PORT = 4000;
 mongoose.connect(
   process.env.REACT_APP_MONGODB,
   {
@@ -39,6 +39,11 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 14,
     },
+  })
+);
+app.use(
+  express.urlencoded({
+    extended: true,
   })
 );
 

@@ -12,26 +12,28 @@ module.exports = {
   },
 
   createPlace(req, res) {
-    const { name, description, price } = req.body;
+    console.log(req.body);
+    const { name, description } = req.body;
     let newPlace = new Place({
       name,
       description,
-      price,
     });
     newPlace.save();
+    console.log(newPlace);
     res.status(200).json({ place: newPlace });
   },
 
   updatePlace(req, res) {
     const { id } = req.params;
-    const { name, description } = req.params;
+    const { name, description } = req.body;
 
     Place.findById(id).exec((err, place) => {
       if (err) console.log("Can't update place", err);
 
-      place.name = name;
-      place.description = description;
+      place.name = name ? name : place.name;
+      place.description = description ?? place.description;
       place.save();
+      console.log(place);
 
       res.status(200).json({ place });
     });
