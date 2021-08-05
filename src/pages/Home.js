@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Text } from "@chakra-ui/react";
 
 export const Home = () => {
   const [places, setPlaces] = useState([]);
@@ -18,7 +19,9 @@ export const Home = () => {
 
   return (
     <>
-      <p>This is home</p>
+      <Text color="red" fontSize="4xl">
+        Hello
+      </Text>
       {places.map((el, i) => (
         <p key={i}>{el.name}</p>
       ))}
