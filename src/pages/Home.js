@@ -25,8 +25,6 @@ const Home = () => {
       <Text color="red" fontSize="4xl">
         Hello
       </Text>
-
-      <LoginButton />
       <UserCard name="ณัฐ" />
       <Link to="/places">Place</Link>
       {places.map((el, i) => (
