@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import LoginButton from "../components/authentication/LoginButton";
+import { UserCard } from "../components/UserCard";
 
 const Home = () => {
   const [places, setPlaces] = useState([]);
@@ -23,6 +25,9 @@ const Home = () => {
       <Text color="red" fontSize="4xl">
         Hello
       </Text>
+
+      <LoginButton />
+      <UserCard name="ณัฐ" />
       <Link to="/places">Place</Link>
       {places.map((el, i) => (
         <p key={i}>{el.name}</p>
