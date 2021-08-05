@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-export const Home = () => {
+const Home = () => {
   const [places, setPlaces] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,9 +23,12 @@ export const Home = () => {
       <Text color="red" fontSize="4xl">
         Hello
       </Text>
+      <Link to="/places">Place</Link>
       {places.map((el, i) => (
         <p key={i}>{el.name}</p>
       ))}
     </>
   );
 };
+
+export default Home;

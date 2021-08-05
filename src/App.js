@@ -1,7 +1,14 @@
-import { Home } from "./pages/Home";
+import { Route, Switch } from "react-router-dom";
+
+import { Home, Places } from "./pages";
 
 function App() {
-  return <Home />;
+  return (
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/places" component={Places} />
+    </Switch>
+  );
 }
 
 export default App;
