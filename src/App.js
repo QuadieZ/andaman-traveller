@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import { Route, Switch } from "react-router-dom";
 
-import { Home, Places } from "./pages";
+import { Home, Places, Profile } from "./pages";
 
 function App() {
   return (
@@ -9,6 +9,9 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/places" component={Places} />
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
       </Switch>
     </Box>
   );
