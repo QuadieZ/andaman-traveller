@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
-import { Text } from "@chakra-ui/react";
+import { Stack, Text, HStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { PointCard, UserCard } from "../components/UserCard";
+import { PointCard, UserCard, PlaceCard } from "../components/UserCard";
 
 const Home = () => {
   const [places, setPlaces] = useState([]);
@@ -21,15 +21,17 @@ const Home = () => {
 
   return (
     <>
-      <Text color="red" fontSize="4xl">
-        Hello
-      </Text>
-      <UserCard name="ณัฐ" />
-      <PointCard />
-      <Link to="/places">Place</Link>
-      {places.map((el, i) => (
-        <p key={i}>{el.name}</p>
-      ))}
+      <Stack py="10vw" px="5vw">
+        <UserCard name="ณัฐ" />
+        <HStack w="100%">
+          <PointCard score="300" areaName="ภูเก็ต" />
+          <PlaceCard />
+        </HStack>
+        <Link to="/places">Place</Link>
+        {places.map((el, i) => (
+          <p key={i}>{el.name}</p>
+        ))}
+      </Stack>
     </>
   );
 };

@@ -1,18 +1,27 @@
-import { Avatar, Heading, HStack, Image, Stack, Text } from "@chakra-ui/react";
-import { FiArrowRightCircle } from "react-icons/fi";
+import {
+  Avatar,
+  Heading,
+  VStack,
+  HStack,
+  Image,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import { FiMapPin } from "react-icons/fi";
 
 // UserCard
 export const UserCard = (props) => {
   const { name } = props;
   return (
     <HStack
-      w="90%"
-      border="1px"
-      borderColor="red"
-      m="auto"
+      w="100%"
       h="18vh"
+      backgroundColor="white"
+      border="2px"
+      borderColor="gray.400"
       align="center"
       justify="center"
+      borderRadius="20px"
     >
       <Avatar
         boxSize="5rem"
@@ -22,7 +31,7 @@ export const UserCard = (props) => {
         <Heading fontSize="5vw" color="gray.600" fontWeight="normal">
           ยินดีต้อนรับ{name}
         </Heading>
-        <Text fontSize="3vw" color="red.500">
+        <Text fontSize="3vw" color="gray.600">
           สวัสดีตอนเช้าคุณนักเดินทางระดับริ่มต้นการเดินทางวันนี้จะเป็นการเดินทางที่ดีเพราะการเดินทางของคุณคือการเรียนรู้!
         </Text>
       </Stack>
@@ -31,30 +40,39 @@ export const UserCard = (props) => {
 };
 
 //point card
-export const PointCard = ({ score }) => {
+export const PointCard = ({ score, areaName }) => {
   return (
-    <HStack
-      w="40%"
-      border="1px"
-      borderColor="red"
-      m="auto"
+    <VStack
+      w="100%"
       h="18vh"
+      backgroundColor="white"
+      border="2px"
+      borderColor="gray.400"
       align="center"
       justify="center"
+      borderRadius="20px"
+      spacing="0"
     >
-      <Stack>
-        <Heading fontSize="1.16vw" color="gray.600" fontWeight="normal">
-          แต้มของคุณ
-        </Heading>
-        <Text>{score}</Text>
-      </Stack>
-      <Stack>
-        <Text>
-          แลกรางวัล
-          <FiArrowRightCircle />
+      <Heading fontSize="5vw" color="gray.600" fontWeight="normal">
+        แต้มของคุณ
+      </Heading>
+      <Text
+        align="center"
+        justify="center"
+        fontSize="10vw"
+        fontWeight="normal"
+        color="gray.500"
+        m="0"
+      >
+        {score}
+      </Text>
+      <HStack>
+        <FiMapPin color="#2D9CDB" />
+        <Text fontSize="5vw" color="#2D9CDB">
+          {areaName}
         </Text>
-      </Stack>
-    </HStack>
+      </HStack>
+    </VStack>
   );
 };
 
