@@ -26,6 +26,7 @@ const Home = () => {
       </Text>
       <LoginButton />
       <Link to="/places">Place</Link>
+      <Link to="/profile">Home</Link>
       {places.map((el, i) => (
         <p key={i}>{el.name}</p>
       ))}
