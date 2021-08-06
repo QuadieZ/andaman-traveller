@@ -1,17 +1,22 @@
-import { Avatar, Heading, HStack, Icon, Stack, Text } from "@chakra-ui/react";
+import {
+  Avatar,
+  Heading,
+  HStack,
+  Icon,
+  Stack,
+  Text,
+  useRadio,
+} from "@chakra-ui/react";
 import { GrLocation } from "react-icons/gr";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { FiBook } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const ProfileCard = ({ name, level }) => {
+const ProfileCard = ({ name, level, img }) => {
   return (
     <Stack spacing="-2.2rem" align="center">
-      <Avatar
-        boxSize="4.8rem"
-        border="1px"
-        src="https://st2.depositphotos.com/1006318/5909/v/950/depositphotos_59094623-stock-illustration-female-avatar-woman.jpg"
-      />
+      <Avatar boxSize="4.8rem" border="1px" src={img} />
       <Stack
         bgColor="white"
         border="2px"
@@ -100,10 +105,11 @@ const LinkCard = ({ icon, label, link }) => {
 };
 
 const Profile = () => {
-  console.log("hi");
+  const { user, isAuthenticated } = useAuth0();
+
   return (
     <Stack px="5vw" py="6vh" spacing={3}>
-      <ProfileCard name="จอห์น ลี" level="เริ่มต้น" />
+      <ProfileCard name={user.given_name} level="เริ่มต้น" img={user.picture} />
       <PointCard />
       <HStack spacing={3}>
         <LinkCard

@@ -24,7 +24,6 @@ const Home = () => {
       <Text color="red" fontSize="4xl">
         Hello
       </Text>
-      <LoginButton />
       <Link to="/places">Place</Link>
       <Link to="/profile">Home</Link>
       {places.map((el, i) => (
