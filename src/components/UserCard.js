@@ -15,13 +15,14 @@ export const UserCard = (props) => {
   return (
     <HStack
       w="100%"
-      h="18vh"
+      h="20%"
       backgroundColor="white"
       border="2px"
       borderColor="gray.400"
       align="center"
       justify="center"
       borderRadius="20px"
+      p="5%"
     >
       <Avatar
         boxSize="5rem"
@@ -32,7 +33,8 @@ export const UserCard = (props) => {
           ยินดีต้อนรับ{name}
         </Heading>
         <Text fontSize="3vw" color="gray.600">
-          สวัสดีตอนเช้าคุณนักเดินทางระดับริ่มต้นการเดินทางวันนี้จะเป็นการเดินทางที่ดีเพราะการเดินทางของคุณคือการเรียนรู้!
+          สวัสดีตอนเช้าคุณนักเดินทางระดับเริ่มต้น
+          การเดินทางวันนี้จะเป็นการเดินทางที่ดีเพราะการเดินทางของคุณคือการเรียนรู้!
         </Text>
       </Stack>
     </HStack>
@@ -43,7 +45,7 @@ export const UserCard = (props) => {
 export const PointCard = ({ score, areaName }) => {
   return (
     <VStack
-      w="100%"
+      w="40%"
       h="18vh"
       backgroundColor="white"
       border="2px"
@@ -52,6 +54,7 @@ export const PointCard = ({ score, areaName }) => {
       justify="center"
       borderRadius="20px"
       spacing="0"
+      p="5%"
     >
       <Heading fontSize="5vw" color="gray.600" fontWeight="normal">
         แต้มของคุณ
@@ -79,20 +82,25 @@ export const PointCard = ({ score, areaName }) => {
 //place
 export const PlaceCard = ({ img, placeName }) => {
   return (
-    <HStack
-      w="40%"
-      border="1px"
-      borderColor="red"
-      m="auto"
+    <VStack
+      w="60%"
       h="18vh"
+      backgroundColor="white"
+      border="2px"
+      borderColor="gray.400"
       align="center"
       justify="center"
+      borderRadius="20px"
+      spacing="0"
+      p="5%"
     >
-      <Heading fontSize="1.16vw" color="gray.600" fontWeight="normal">
+      <Heading fontSize="5vw" color="gray.600" fontWeight="normal">
         สถานที่แนะนำประจำวัน
       </Heading>
-      <Image src={img} />
-      <Text>{placeName}</Text>
-    </HStack>
+      <Image src={img} boxSize="90%" objectFit="cover" />
+      <Text fontSize="3vw" color="gray.600" fontWeight="normal">
+        {placeName}
+      </Text>
+    </VStack>
   );
 };

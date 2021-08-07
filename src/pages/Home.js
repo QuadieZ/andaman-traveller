@@ -25,12 +25,9 @@ const Home = () => {
         <UserCard name="ณัฐ" />
         <HStack w="100%">
           <PointCard score="300" areaName="ภูเก็ต" />
-          <PlaceCard />
+          <PlaceCard img="https://picsum.photos/500" placeName="แหลมพรหมเทพ" />
         </HStack>
         <Link to="/places">Place</Link>
-        {places.map((el, i) => (
-          <p key={i}>{el.name}</p>
-        ))}
       </Stack>
     </>
   );
