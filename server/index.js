@@ -58,6 +58,7 @@ setTimeout(() => {
   app.post("/api/login", userController.login);
   app.post("/api/logout", userController.logout);
   */
+  app.get("/auth/callback", userController.login);
 
   // Places Endpoints
   app.get("/api/places", placesController.readAllPlaces);
