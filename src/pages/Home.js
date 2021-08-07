@@ -21,9 +21,9 @@ const Home = () => {
 
   return (
     <>
-      <Stack py="10vw" px="5vw">
+      <Stack py="10vw" px="5vw" h="100vh" spacing={3}>
         <UserCard name="ณัฐ" />
-        <HStack w="100%">
+        <HStack w="100%" spacing={3}>
           <PointCard score="300" areaName="ภูเก็ต" />
           <PlaceCard img="https://picsum.photos/500" placeName="แหลมพรหมเทพ" />
         </HStack>
