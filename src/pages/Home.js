@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import { Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import LoginButton from "../components/authentication/LoginButton";
 
 const Home = () => {
   const [places, setPlaces] = useState([]);
