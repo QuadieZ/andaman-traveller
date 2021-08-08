@@ -1,4 +1,4 @@
-import { HStack, Stack, Text } from "@chakra-ui/react";
+import { HStack, Stack, Text, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
 
 import { Rating } from "react-simple-star-rating";
@@ -27,6 +27,11 @@ export const ReviewBody = () => {
       <Text fontSize="4vw" color="gray.500">
         ความเห็นเพิ่มเติม
       </Text>
+      <Textarea
+        placeholder="ไปเที่ยวมาแล้วเป็นยังไงบ้าง แนะนำเพื่อนๆนักเดินทางกัน!"
+        fontSize="4vw"
+        h="8vh"
+      />
     </Stack>
   );
 };

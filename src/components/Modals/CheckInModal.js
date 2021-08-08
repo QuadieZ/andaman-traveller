@@ -25,6 +25,8 @@ export const CheckInModal = ({ place }) => {
   const isLocationEnabled = true;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isCheckIn, setIsCheckIn] = useState(true);
+  const [header, setHeader] = useState("เช็คอิน");
+  const [confirmed, setConfirmed] = useState(false);
 
   const CheckInBody = isLocationEnabled ? (
     <>
@@ -42,9 +44,29 @@ export const CheckInModal = ({ place }) => {
     </Stack>
   );
 
+  const confirmBody = (
+    <Text textAlign="center" mx={1} mb={5}>
+      คุณได้รับ xx แต้มจากการเช็คอินและรีวิว
+    </Text>
+  );
+
+  const modalContent = isCheckIn ? CheckInBody : <ReviewBody />;
+
+  function handleConfirm() {
+    if (isCheckIn) {
+      setIsCheckIn(false);
+      setHeader("เขียนรีวิว");
+    } else {
+      setHeader("ยินดีด้วย!");
+      setConfirmed(true);
+    }
+  }
+
   function handleClose() {
     onClose();
     setIsCheckIn(true);
+    setConfirmed(false);
+    setHeader("เช็คอิน");
   }
 
   return (
@@ -56,15 +78,14 @@ export const CheckInModal = ({ place }) => {
         position="absolute"
         bottom="4vh"
         zIndex="2"
+        _focus={{ outline: "none" }}
         left="38vw"
         icon={
           <Circle size="22vw" bg="white" border="2px" borderColor="gray.400">
             <Icon as={FiMapPin} boxSize="55%" color="gray.500" />
           </Circle>
         }
-      >
-        Open Modal
-      </IconButton>
+      />
       <Modal
         isCentered
         onClose={handleClose}
@@ -80,12 +101,11 @@ export const CheckInModal = ({ place }) => {
             fontWeight="normal"
             pb={0}
           >
-            เช็คอิน
+            {header}
           </ModalHeader>
-          <ModalBody mt={1}>
-            {isCheckIn ? CheckInBody : <ReviewBody />}
-          </ModalBody>
-          <ModalFooter>
+          <ModalCloseButton display={confirmed ? "box" : "none"} mt={1} />
+          <ModalBody mt={1}>{confirmed ? confirmBody : modalContent}</ModalBody>
+          <ModalFooter display={confirmed ? "none" : "flex"}>
             <HStack w="100%">
               <Button
                 bgColor="#2D9CDB"
@@ -94,11 +114,7 @@ export const CheckInModal = ({ place }) => {
                 fontSize="sm"
                 fontWeight="normal"
                 borderRadius="10px"
-                onClick={() => {
-                  if (isCheckIn) {
-                    setIsCheckIn(false);
-                  }
-                }}
+                onClick={handleConfirm}
               >
                 {isCheckIn ? "เช็คอิน" : "ยืนยัน"}
               </Button>
@@ -111,7 +127,7 @@ export const CheckInModal = ({ place }) => {
                 fontWeight="normal"
                 borderRadius="10px"
               >
-                ยกเลิก
+                {isCheckIn ? "ยกเลิก" : "ข้าม"}
               </Button>
             </HStack>
           </ModalFooter>
