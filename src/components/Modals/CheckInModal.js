@@ -54,11 +54,11 @@ export const CheckInModal = ({ place }) => {
         borderRadius="50%"
         bgColor="white"
         position="absolute"
-        bottom="5vh"
+        bottom="4vh"
         zIndex="2"
-        left="40vw"
+        left="38vw"
         icon={
-          <Circle size="20vw" bg="white" border="2px" borderColor="gray.400">
+          <Circle size="22vw" bg="white" border="2px" borderColor="gray.400">
             <Icon as={FiMapPin} boxSize="55%" color="gray.500" />
           </Circle>
         }

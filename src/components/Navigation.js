@@ -6,10 +6,12 @@ import { CheckInModal } from "./Modals/CheckInModal";
 
 const NavigationItem = ({ icon, label, path }) => {
   const history = useHistory();
+  const active = history.location.pathname;
+
   return (
     <Stack
       align="center"
-      bgColor="white"
+      bgColor={path === active ? "#E0EAFF" : "white"}
       justify="center"
       h="100%"
       w="40%"
@@ -19,8 +21,12 @@ const NavigationItem = ({ icon, label, path }) => {
         history.push(path);
       }}
     >
-      <Icon as={icon} boxSize="45%" color="gray.400" />
-      <Text fontSize="xs" color="gray.500">
+      <Icon
+        as={icon}
+        boxSize="45%"
+        color={path === active ? "#2D9CDB" : "gray.400"}
+      />
+      <Text fontSize="xs" color={path === active ? "#2D9CDB" : "gray.500"}>
         {label}
       </Text>
     </Stack>
