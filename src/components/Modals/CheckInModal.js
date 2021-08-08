@@ -24,9 +24,12 @@ import { ReviewBody } from "./ReviewBody";
 export const CheckInModal = ({ place }) => {
   const isLocationEnabled = true;
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   const [isCheckIn, setIsCheckIn] = useState(true);
   const [header, setHeader] = useState("เช็คอิน");
+  const [confirmText, setConfirmText] = useState("เช็คอิน");
   const [confirmed, setConfirmed] = useState(false);
+  const [point, setPoint] = useState(0);
 
   const CheckInBody = isLocationEnabled ? (
     <>
@@ -46,7 +49,7 @@ export const CheckInModal = ({ place }) => {
 
   const confirmBody = (
     <Text textAlign="center" mx={1} mb={5}>
-      คุณได้รับ xx แต้มจากการเช็คอินและรีวิว
+      คุณได้รับ {point} แต้มจากการ{confirmText}
     </Text>
   );
 
@@ -56,17 +59,27 @@ export const CheckInModal = ({ place }) => {
     if (isCheckIn) {
       setIsCheckIn(false);
       setHeader("เขียนรีวิว");
+      setPoint((prev) => prev + 50);
     } else {
       setHeader("ยินดีด้วย!");
       setConfirmed(true);
+      setConfirmText("เช็คอินและรีวิว");
+      setPoint((prev) => prev + 50);
     }
+  }
+
+  function handleSkip() {
+    setHeader("ยินดีด้วย!");
+    setConfirmed(true);
   }
 
   function handleClose() {
     onClose();
     setIsCheckIn(true);
     setConfirmed(false);
+    setPoint(0);
     setHeader("เช็คอิน");
+    setConfirmText("เช็คอิน");
   }
 
   return (
@@ -120,7 +133,7 @@ export const CheckInModal = ({ place }) => {
               </Button>
               <Button
                 bgColor="gray.500"
-                onClick={handleClose}
+                onClick={!isCheckIn ? handleSkip : handleClose}
                 color="white"
                 w="50%"
                 fontSize="sm"
