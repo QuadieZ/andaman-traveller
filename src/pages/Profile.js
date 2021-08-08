@@ -12,6 +12,7 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { FiBook } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Navigation } from "../components/Navigation";
 
 const ProfileCard = ({ name, level, img }) => {
   return (
@@ -119,6 +120,7 @@ const Profile = () => {
         />
         <LinkCard icon={FiBook} label="บันทึกการเดินทาง" link="/journal" />
       </HStack>
+      <Navigation />
     </Stack>
   );
 };
