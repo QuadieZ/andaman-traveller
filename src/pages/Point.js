@@ -2,7 +2,7 @@ import { Text } from "@chakra-ui/react";
 import { BackButton } from "../components/BackButton";
 import { Navigation } from "../components/Navigation";
 
-const Pins = () => {
+const Points = () => {
   return (
     <>
       <BackButton />
@@ -11,4 +11,4 @@ const Pins = () => {
   );
 };
 
-export default Pins;
+export default Points;
