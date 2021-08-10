@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Stack, Text, HStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { PointCard, UserCard, PlaceCard } from "../components/UserCard";
+import { Navigation } from "../components/Navigation";
 
 const Home = () => {
   const [places, setPlaces] = useState([]);
@@ -29,6 +30,7 @@ const Home = () => {
         </HStack>
         <Link to="/places">Place</Link>
       </Stack>
+      <Navigation />
     </>
   );
 };
