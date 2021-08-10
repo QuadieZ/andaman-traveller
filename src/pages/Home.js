@@ -28,7 +28,6 @@ const Home = () => {
           <PointCard score="300" areaName="ภูเก็ต" />
           <PlaceCard img="https://picsum.photos/500" placeName="แหลมพรหมเทพ" />
         </HStack>
-        <Link to="/places">Place</Link>
       </Stack>
       <Navigation />
     </>
