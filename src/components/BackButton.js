@@ -1,7 +1,9 @@
 import { Circle, Icon, IconButton } from "@chakra-ui/react";
 import { BsArrowLeftShort } from "react-icons/bs";
+import { useHistory } from "react-router-dom";
 
 export const BackButton = () => {
+  const history = useHistory();
   return (
     <Circle
       size="6vh"
@@ -12,6 +14,9 @@ export const BackButton = () => {
       top="0"
       left="0"
       m="2vh"
+      onClick={() => {
+        history.goBack();
+      }}
     >
       <Icon as={BsArrowLeftShort} boxSize="95%" color="gray.500" />
     </Circle>

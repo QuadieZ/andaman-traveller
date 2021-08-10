@@ -41,6 +41,7 @@ const ProfileCard = ({ name, level, img }) => {
 };
 
 const PointCard = () => {
+  const history = useHistory();
   return (
     <Stack
       bgColor="white"
@@ -51,6 +52,9 @@ const PointCard = () => {
       w="100%"
       align="center"
       spacing="0.2rem"
+      onClick={() => {
+        history.push("/point");
+      }}
     >
       <Text color="gray.500" fontWeight="light">
         แต้มของคุณ
