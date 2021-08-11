@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
-import { Text } from "@chakra-ui/react";
+import { Stack, Text, HStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { PointCard, UserCard, PlaceCard } from "../components/UserCard";
 import { Navigation } from "../components/Navigation";
 
 const Home = () => {
@@ -21,14 +22,13 @@ const Home = () => {
 
   return (
     <>
-      <Text color="red" fontSize="4xl">
-        Hello
-      </Text>
-      <Link to="/places">Place</Link>
-      <Link to="/profile">Home</Link>
-      {places.map((el, i) => (
-        <p key={i}>{el.name}</p>
-      ))}
+      <Stack py="10vw" px="5vw" h="100vh" spacing={3}>
+        <UserCard name="ณัฐ" />
+        <HStack w="100%" spacing={3}>
+          <PointCard score="300" areaName="ภูเก็ต" />
+          <PlaceCard img="https://picsum.photos/500" placeName="แหลมพรหมเทพ" />
+        </HStack>
+      </Stack>
       <Navigation />
     </>
   );

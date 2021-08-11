@@ -4,8 +4,8 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Auth0Provider } from "@auth0/auth0-react";
-import "@fontsource/kanit";
 import theme from "./theme";
+import "@fontsource/kanit";
 
 ReactDOM.render(
   <Auth0Provider
