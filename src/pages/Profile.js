@@ -17,22 +17,22 @@ import { Navigation } from "../components/Navigation";
 const ProfileCard = ({ name, level, img }) => {
   return (
     <Stack spacing="-2.2rem" align="center">
-      <Avatar boxSize="4.8rem" border="1px" src={img} />
+      <Avatar boxSize="16vh" border="1px" src={img} />
       <Stack
         bgColor="white"
         border="2px"
         borderColor="gray.400"
         borderRadius="20px"
-        pt="3rem"
-        pb="1.5rem"
+        pt="8vh"
         w="100%"
+        h="25vh"
         align="center"
-        spacing="0.2rem"
+        spacing="0.2vh"
       >
-        <Heading fontSize="1.7rem" fontWeight="medium" color="gray.600">
+        <Heading fontSize="6vh" fontWeight="medium" color="gray.600">
           {name}
         </Heading>
-        <Text color="gray.500" fontWeight="light">
+        <Text color="gray.500" fontWeight="light" fontSize="3vh">
           นักเดินทางระดับ{level}
         </Text>
       </Stack>
@@ -47,20 +47,22 @@ const PointCard = () => {
       border="2px"
       borderColor="gray.400"
       borderRadius="20px"
-      py="1rem"
+      align="center"
+      justify="center"
       w="100%"
+      h="25vh"
       align="center"
       spacing="0.2rem"
     >
-      <Text color="gray.500" fontWeight="light">
+      <Text color="gray.500" fontWeight="light" fontSize="3vh">
         แต้มของคุณ
       </Text>
-      <Heading fontSize="4xl" fontWeight="medium" color="gray.500">
+      <Heading fontSize="6vh" fontWeight="medium" color="gray.500">
         200
       </Heading>
       <HStack spacing="0.2rem" align="center" justify="center">
         <Icon as={GrLocation} sx={{ path: { stroke: "#2D9CDB" } }} />
-        <Text color="gray.500" fontWeight="light">
+        <Text color="gray.500" fontWeight="light" fontSize="3vh">
           ภูเก็ต
         </Text>
       </HStack>
@@ -79,6 +81,7 @@ const LinkCard = ({ icon, label, link }) => {
       py="1.8rem"
       px="1.2rem"
       w="100%"
+      h="15vh"
       maxH="20vh"
       align="center"
       justify="center"
@@ -90,7 +93,7 @@ const LinkCard = ({ icon, label, link }) => {
       <Icon
         as={icon}
         sx={{ path: { stroke: "#979797" } }}
-        boxSize="1.5rem"
+        boxSize="4vh"
         color="#979797"
       />
       <Text
